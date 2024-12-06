@@ -1,18 +1,28 @@
-% Dados de treino: [Comprimento > 8, Números > 1, Maiúsculas > 1, Símbolos > 1, tem Caracteres repetidos > 3]
-dados = [
-    1, 1, 1, 1, 0; 
-    1, 0, 1, 0, 0; 
-    0, 1, 0, 1, 1; 
-    1, 1, 1, 1, 1; 
-    0, 0, 0, 0, 0;
-    0, 0, 1, 1, 1;
-    1, 1, 0, 0, 0;
-    1, 0, 1, 1, 0;
-    1, 1, 0, 1, 0;
-];
+senhas_nao_seguras = readtable('passes_nao_seguras.csv', 'FileType', 'text', 'Delimiter', ',', 'Encoding', 'latin1');
+senhas_nao_seguras = table2array(senhas_nao_seguras); 
 
-% 1 = Seguro e 0 = Não seguro
-defenicao = [1; 0; 0; 1; 0; 0; 0; 1; 1];
+senhas_seguras = readtable('passes_seguras.csv', 'FileType', 'text', 'Delimiter', ',', 'Encoding', 'latin1');
+senhas_seguras = table2array(senhas_seguras); 
+
+
+dados_nao_seguras = zeros(length(senhas_nao_seguras), 5);
+dados_seguras = zeros(length(senhas_seguras), 5);
+
+
+for i = 1:length(senhas_nao_seguras)
+    senha = senhas_nao_seguras{i}; 
+    dados_nao_seguras(i, :) = dados_passe(senha); 
+end
+
+for i = 1:length(senhas_seguras)
+    senha = senhas_seguras{i}; 
+    dados_seguras(i, :) = dados_passe(senha);
+end
+
+dados = [dados_nao_seguras; dados_seguras];
+
+defenicao = [zeros(length(senhas_nao_seguras), 1); ones(length(senhas_seguras), 1)];
+
 
 % Probabilidade
 prob_segura = sum(defenicao == 1) / length(defenicao);
@@ -26,7 +36,7 @@ prob_passe_dado_nao_seguro = sum(dados(defenicao == 0, :)) ./ sum(defenicao == 0
 % Pede ao utilizador
 senha = input('Insira a senha para verificar: ', 's');
 
-%validações
+% Validações
 if ~all(isstrprop(senha, 'print'))
     error('A senha contém caracteres inválidos.');
 end
