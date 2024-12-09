@@ -2,12 +2,12 @@
 senhas_nao_seguras = readtable('passes_nao_seguras.csv', 'FileType', 'text', 'Delimiter', ',', 'Encoding', 'latin1');
 senhas_nao_seguras = table2array(senhas_nao_seguras); 
 senhas_nao_seguras_treino = senhas_nao_seguras(1:3000);
-senhas_nao_seguras_teste = senhas_nao_seguras(3001:end); % Ajustado o índice
+senhas_nao_seguras_teste = senhas_nao_seguras(3001:end); 
 
 senhas_seguras = readtable('passes_seguras.csv', 'FileType', 'text', 'Delimiter', ',', 'Encoding', 'latin1');
 senhas_seguras = table2array(senhas_seguras); 
 senhas_seguras_treino = senhas_seguras(1:3000);
-senhas_seguras_teste = senhas_seguras(3001:end); % Ajustado o índice
+senhas_seguras_teste = senhas_seguras(3001:end);
 
 dados_nao_seguras = zeros(length(senhas_nao_seguras_treino), 5);
 dados_seguras = zeros(length(senhas_seguras_treino), 5);
