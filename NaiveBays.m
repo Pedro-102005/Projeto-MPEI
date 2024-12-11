@@ -62,6 +62,5 @@ for i = 1:length(senhas_nao_seguras_teste)
     end
 end
 
-% Precisão para senhas não seguras
 precisao_nao_seguras = previsoes_certas_nao_seguras / length(senhas_nao_seguras_teste);
 fprintf('Precisão para senhas não seguras: %.2f%%\n', precisao_nao_seguras * 100);
