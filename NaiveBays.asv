@@ -1,7 +1,6 @@
-load('dados_treino.mat', 'dados_treino');
-load('rotulos_treino.mat', 'rotulos_treino');
-load('senhas_seguras_teste.mat', 'senhas_seguras_teste');
-load('senhas_nao_seguras_teste.mat', 'senhas_nao_seguras_teste');
+load('dados_treino.mat');
+load('rotulos_treino.mat')
+load('dados_teste.mat')
 
 % Probabilidades a priori
 prob_segura = sum(rotulos_treino == 1) / length(rotulos_treino);
