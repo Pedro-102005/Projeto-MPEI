@@ -18,8 +18,12 @@ function NaiveBays_input()
     probabilidade_nao_segura = log(prob_nao_segura) + sum(dados_senha .* log(prob_passe_dado_nao_seguro));
 
     if probabilidade_ser_segura > probabilidade_nao_segura
+        is_segura = true;
         fprintf('Naive Bayes: A palavra-passe "%s" é classificada como segura.\n', senha);
     else
+        is_segura = false;
         fprintf('Naive Bayes: A palavra-passe "%s" é classificada como não segura.\n', senha);
     end
+
+    save('naive_bayes_result.mat', 'is_segura');
 end
