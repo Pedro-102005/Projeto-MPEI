@@ -9,10 +9,9 @@ senhas_teste_BloomFilter = table2array(senhas_teste_BloomFilter);
 p = 0.001;  % Probabilidade de falsos positivos
 m = length(comprometidas);
 save('m_value.mat', 'm');
-fator_ajuste = 1.5;
 n = round(-(m * log(p) / (log(2))^2));
 %limite maximo 5
-k = min(round(((n / m) * log(2)) + 1), 5);
+k = round(((n / m) * log(2)) + 1);
 BF = inicializador(n);
 
 total_hashes_repetidos = 0;
