@@ -8,6 +8,7 @@ senha = input('Digite uma palavra-passe para verificar: ', 's');
 save('ultima_palavra_teste.mat', 'senha');
 NaiveBays_input();
 BloomFilter_input(k); 
+Minhash_input(); 
 
 
 
