@@ -1,10 +1,8 @@
-function Minhash_input()
+function Minhash_input(senha)
     % Carregar os dados necessários
     load('shingles.mat', 'shingles');
     load('senhas_nao_seguras_teste.mat', 'senhas_nao_seguras_teste');
     load('assinaturas.mat', 'assinaturas');
-    load('ultima_palavra_teste.mat', 'senha'); % Carregar senha salva
-
     % Parâmetros para MinHash
     l = 500; % Número de funções de hash
     tamanho_shingle = 3; % Tamanho dos shingles

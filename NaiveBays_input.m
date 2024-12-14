@@ -1,8 +1,6 @@
-function NaiveBays_input()
+function NaiveBays_input(senha)
     load('dados_treino.mat', 'dados_treino');
     load('rotulos_treino.mat', 'rotulos_treino');
-    load('ultima_palavra_teste.mat', 'senha');
-
     prob_segura = sum(rotulos_treino == 1) / length(rotulos_treino);
     prob_nao_segura = 1 - prob_segura;
 

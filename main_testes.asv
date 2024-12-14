@@ -29,6 +29,6 @@ disp("Exemplo de palavra nao comprometida")
 senha = 'JNXEUYGHdsd8.';
 BloomFilter_input(k,senha);
 
-disp("Exemplo de palavra comprometida")
+disp("Exemplo de palavra Comp")
 senha = 'dyqocg7';
 BloomFilter_input(k,senha);

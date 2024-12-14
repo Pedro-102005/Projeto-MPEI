@@ -1,6 +1,5 @@
-function BloomFilter_input(k)
+function BloomFilter_input(k, senha)
     load('BF.mat', 'BF');
-    load('ultima_palavra_teste.mat', 'senha');
     
     is_compromised = check(BF, senha, k);
     
