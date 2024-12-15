@@ -2,7 +2,7 @@ load('BF.mat');
 p = 0.001;  
 m = length(BF);
 n = round(-(m * log(p) / (log(2))^2));
-k = round(((n / m) * log(2)) + 1);
+k = round(log(1/2) / (m * log(1 - 1/n)));
 
 
 senha = input('Digite uma palavra-passe para verificar: ', 's');

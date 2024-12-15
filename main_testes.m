@@ -4,7 +4,7 @@ disp("Testes NaveBays :")
 p = 0.001; 
 load('m_value.mat', 'm');
 n = round(-(m * log(p) / (log(2))^2));
-k = round(((n / m) * log(2)) + 1);
+k = round(log(1/2) / (m * log(1 - 1/n)));
 disp("Testes BloomFilter :")
 BloomFilter(k);
 
